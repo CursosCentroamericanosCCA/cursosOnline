@@ -5,6 +5,7 @@
  */
 package formularios;
 
+import clases.Administrador;
 import javax.swing.JOptionPane;
 
 /**
@@ -30,22 +31,15 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
         jBtnEnviar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jTxtUsuario = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
         jPassClave = new javax.swing.JPasswordField();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jTextField1.setFont(new java.awt.Font("Times New Roman", 3, 18)); // NOI18N
-        jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField1.setText("LOGIN");
-        jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jTextField1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
 
         jBtnEnviar.setText("Enviar");
         jBtnEnviar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -70,7 +64,8 @@ public class Login extends javax.swing.JFrame {
 
         jLabel2.setText("Clave");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Docente", "Cliente", "Supervisor", "Publicista" }));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel4.setText("LOGIN ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,9 +80,6 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jLabel2))
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE))
                             .addComponent(jTxtUsuario)
                             .addComponent(jPassClave)))
                     .addGroup(layout.createSequentialGroup()
@@ -97,16 +89,16 @@ public class Login extends javax.swing.JFrame {
                 .addComponent(jButton2)
                 .addGap(24, 24, 24))
             .addGroup(layout.createSequentialGroup()
-                .addGap(162, 162, 162)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(183, 183, 183)
+                .addComponent(jLabel4)
+                .addContainerGap(129, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(38, 38, 38)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel4)
+                .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jTxtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -114,9 +106,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jPassClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
-                .addGap(18, 18, 18)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 77, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 85, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBtnEnviar)
                     .addComponent(jButton2))
@@ -131,30 +121,19 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jBtnEnviarActionPerformed
 
     private void jBtnEnviarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBtnEnviarMouseClicked
-        if (this.jTxtUsuario.equals("Admin")||this.jPassClave.equals("123")||this.jComboBox1.equals("Administrador")) {
+    Administrador ad = new Administrador();
+        String a, b;
+        ad.setUsuario("Admin");
+        ad.setPass("123");
+        a=this.jTxtUsuario.getText();
+        b=this.jPassClave.getText().toString();
+        if (a.equals(ad.getUsuario())&& b.equals(ad.getPass())){
          Menu m = new Menu();
             m.setVisible(true);
           this.dispose();
         }else{
             JOptionPane.showMessageDialog(null, "Error al Iniciar la Sesion\n Por favor ingrese los campos correctos o Seleccione tipo de Usuario correspondiente" );
-           setVisible(true);
-        }
-        if (this.jTxtUsuario.equals("Cliente")||this.jPassClave.equals("456")||this.jComboBox1.equals("Cliente")){
-            JOptionPane.showMessageDialog(null, "Datos Correctos");
-            Menu m = new Menu();
-            m.setVisible(true);this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Error al Iniciar la Sesion\n Por favor ingrese los campos correctos o Seleccione tipo de Usuario correspondiente" );
-            setVisible(true);
-        }
-        if(this.jTxtUsuario.getText().equals("Docente")||this.jPassClave.equals("789")||this.jComboBox1.equals("Docente")) {
-            Menu m = new Menu();
-            m.setVisible(true);this.dispose();
-        }else{
-            JOptionPane.showMessageDialog(null, "Error al Iniciar la Sesion\n Por favor ingrese los campos correctos o Seleccione tipo de Usuario correspondiente" );
-        setVisible(true);
-        }
-        
+           setVisible(true);     } 
         
         
     }//GEN-LAST:event_jBtnEnviarMouseClicked
@@ -202,11 +181,10 @@ this.dispose();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnEnviar;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPasswordField jPassClave;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTxtUsuario;
     // End of variables declaration//GEN-END:variables
 }
