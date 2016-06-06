@@ -22,11 +22,13 @@ public class Administrador {
     private String adClave;
     private String adPais;
     private String adTipoEmpleado;
+    private String usuario;
+    private String pass;
 
     public Administrador() {
     }
 
-    public Administrador(int idAdmin, String adNombre, String adApellido, String adDireccion, int adEdad, String adTelefono, String adSexo, String adFechaNac, String adCorreo, String adClave, String adPais, String adTipoEmpleado) {
+    public Administrador(int idAdmin, String adNombre, String adApellido, String adDireccion, int adEdad, String adTelefono, String adSexo, String adFechaNac, String adCorreo, String adClave, String adPais, String adTipoEmpleado, String usuario, String pass) {
         this.idAdmin = idAdmin;
         this.adNombre = adNombre;
         this.adApellido = adApellido;
@@ -38,9 +40,10 @@ public class Administrador {
         this.adCorreo = adCorreo;
         this.adClave = adClave;
         this.adPais = adPais;
-        this.adTipoEmpleado=adTipoEmpleado;
+        this.adTipoEmpleado = adTipoEmpleado;
+        this.usuario = usuario;
+        this.pass = pass;
     }
-
     public int getIdAdmin() {
         return idAdmin;
     }
@@ -151,6 +154,22 @@ public class Administrador {
                 ", adClave=" + adClave +
                 ", adPais=" + adPais;
         
+    }
+
+    public String getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
  
     
